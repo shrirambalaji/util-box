@@ -1,4 +1,6 @@
-> A minimal toolbox of helper methods
+>  A minimal toolbox of helper methods
+
+[![Build Status](https://travis-ci.org/Shriram-Balaji/util-box.svg?branch=master)](https://travis-ci.org/Shriram-Balaji/util-box)
 
 ## Usage
 
