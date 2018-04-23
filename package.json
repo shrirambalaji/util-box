@@ -1,0 +1,22 @@
+{
+  "name": "util-box",
+  "version": "1.0.0",
+  "description": "A minimal set of basic helpers and utilties",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "Shriram Balaji",
+  "license": "MIT",
+  "ava" : {
+    "files" : [
+      "test/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "ava": "1.0.0-beta.4"
+  },
+  "dependencies": {
+    "chalk": "^2.4.0"
+  }
+}
