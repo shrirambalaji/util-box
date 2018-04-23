@@ -7,6 +7,9 @@
     "test": "ava"
   },
   "author": "Shriram Balaji",
+  "keywords": [
+    "util", "box", "helper", "utility"
+  ],
   "license": "MIT",
   "ava" : {
     "files" : [

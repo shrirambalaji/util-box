@@ -1,5 +1,3 @@
-# util-box :wrench:
-
 > A minimal toolbox of helper methods
 
 ## Usage
