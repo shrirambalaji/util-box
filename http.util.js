@@ -10,6 +10,17 @@ httpUtil.removeTrailingSlash = url => {
   return url;
 };
 
+httpUtil.normalizeReqParams = params => {
+  normalisedParams = {};
+  Object.keys(params).map((key, index) => {
+    if (params[key]) {
+      normalisedParams[key] = params[key];
+    }
+  });
+
+  return normalisedParams;
+};
+
 /**
  *
  * @param {object} reqParams - k,v pairs of input req. query params
@@ -21,6 +32,7 @@ httpUtil.makeQueryString = (reqParams, reqUrl) => {
     error = new Error("Missing or invalid parameters");
     return err;
   }
+  reqParams = httpUtil.normalizeReqParams(reqParams);
   queryString = "";
   paramKeys = Object.keys(reqParams);
   paramsLen = paramKeys.length;
@@ -33,7 +45,7 @@ httpUtil.makeQueryString = (reqParams, reqUrl) => {
         }
         queryString += `${key}=${reqParams[key]}`;
         nextKey = paramKeys[index + 1];
-        nextElement = reqParams[nextKey];
+        nextElement = reqParams[`${nextKey}`];
         // append `&` if index isnt at the last element, and if next key isnt null
         if (index !== paramsLen - 1 && nextElement) {
           queryString += "&";
@@ -42,7 +54,7 @@ httpUtil.makeQueryString = (reqParams, reqUrl) => {
     });
   }
   if (reqUrl) {
-    return `${removeTrailingSlash(reqUrl)}${queryString}`;
+    return `${httpUtil.removeTrailingSlash(reqUrl)}${queryString}`;
   } else {
     return queryString;
   }
