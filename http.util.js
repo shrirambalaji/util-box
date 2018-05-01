@@ -11,14 +11,16 @@ httpUtil.removeTrailingSlash = url => {
 };
 
 httpUtil.normalizeReqParams = params => {
-  normalisedParams = {};
-  Object.keys(params).map((key, index) => {
-    if (params[key]) {
-      normalisedParams[key] = params[key];
-    }
-  });
+  normalizedParams = {};
+  if (Object.keys(params).length > 0) {
+    Object.keys(params).map((key, index) => {
+      if (params[key]) {
+        normalizedParams[key] = params[key];
+      }
+    });
+  }
 
-  return normalisedParams;
+  return normalizedParams;
 };
 
 /**
@@ -71,9 +73,11 @@ httpUtil.handleApiResponse = response => {
       error.statusCode = response.status;
       reject(error);
     } else {
-      if (typeof response.body === "object") {
+      try {
+        // throws an error if body isnt valid json, catch that and resolve as text instead
+        let body = JSON.stringify(response.body);
         resolve(response.json());
-      } else {
+      } catch (error) {
         resolve(response.text());
       }
     }
