@@ -1,16 +1,14 @@
 const path = require("path");
 const test = require("ava");
 const HOMEDIR = path.join(__dirname, "..", "..");
-const httpUtil = require(path.join(HOMEDIR, "http.util"));
+const httpUtil = require(path.join(HOMEDIR)).httpUtil;
 const { mockRes } = require("../fixtures/http.util.fixtures");
 test("removes trailing slash from a url, if present", t => {
-  t.plan(1);
   let responseUrl = httpUtil.removeTrailingSlash("test-check.com/");
   t.is(responseUrl, "test-check.com");
 });
 
 test("normalises and removes undefined request parameters", t => {
-  t.plan(1);
   let mockReqParams = {
     name: "Jon Snow",
     death: undefined,
@@ -28,17 +26,13 @@ test("normalises and removes undefined request parameters", t => {
 });
 
 test("returns a querystring when provided with request params", t => {
-  t.plan(1);
   let mockReqParams = {
     firstName: "Walter",
     lastName: "White",
     quote: "I'm the one who knocks!"
   };
   let queryString = httpUtil.makeQueryString(mockReqParams);
-  t.is(
-    queryString,
-    "?firstName=Walter&lastName=White&quote=I'm the one who knocks!"
-  );
+  t.is(queryString, "?firstName=Walter&lastName=White&quote=I'm the one who knocks!");
 });
 
 test("handles generic api response, and returns a promise", async t => {

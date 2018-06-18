@@ -8,11 +8,14 @@
   },
   "author": "Shriram Balaji",
   "keywords": [
-    "util", "box", "helper", "utility"
+    "util",
+    "box",
+    "helper",
+    "utility"
   ],
   "license": "MIT",
-  "ava" : {
-    "files" : [
+  "ava": {
+    "files": [
       "test/**/*.js"
     ]
   },
@@ -20,6 +23,7 @@
     "ava": "1.0.0-beta.4"
   },
   "dependencies": {
-    "chalk": "^2.4.0"
+    "camelcase-keys": "^4.2.0",
+    "signale": "^1.2.1"
   }
 }
