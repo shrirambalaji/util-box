@@ -1,10 +1,9 @@
-const Util = () => {};
 const httpUtil = require("./http.util");
-const { error, success, debug } = require("./output.util");
+const outputUtil = require("./output.util");
+const stopClockUtil = require("./stop-clock.util");
 
 module.exports = {
-	httpUtil,
-	error,
-	success,
-	debug
+  httpUtil,
+  outputUtil,
+  stopClockUtil
 };

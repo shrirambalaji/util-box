@@ -1,16 +1,16 @@
-const { red, gray, green } = require("chalk");
-const output = () => {};
-output.error = (...value) => {
-	console.error(red(...value));
+const signale = require("signale");
+const outputUtil = () => {};
+outputUtil.error = (...value) => {
+  signale.error(...value);
 };
 
 // runs only when the DEBUG env variable is set to true
-output.debug = (...value) => {
-	if (process.env.DEBUG) console.debug(gray(...value));
+outputUtil.debug = (...value) => {
+  if (process.env.DEBUG) signale.debug(...value);
 };
 
-output.success = (...value) => {
-	console.log(green(...value));
+outputUtil.success = (...value) => {
+  signale.success(...value);
 };
 
-module.exports = output;
+module.exports = outputUtil;
