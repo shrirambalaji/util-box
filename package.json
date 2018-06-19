@@ -1,6 +1,6 @@
 {
   "name": "util-box",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "A minimal set of basic helpers and utilties",
   "main": "index.js",
   "scripts": {
@@ -8,18 +8,26 @@
   },
   "author": "Shriram Balaji",
   "keywords": [
-    "util", "box", "helper", "utility"
+    "util",
+    "box",
+    "helper",
+    "utility"
   ],
   "license": "MIT",
-  "ava" : {
-    "files" : [
+  "ava": {
+    "files": [
       "test/**/*.js"
     ]
   },
   "devDependencies": {
     "ava": "1.0.0-beta.4"
   },
-  "dependencies": {
-    "chalk": "^2.4.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shriram-Balaji/util-box"
+  },
+   "dependencies": {
+    "camelcase-keys": "^4.2.0",
+    "signale": "^1.2.1"
   }
 }
