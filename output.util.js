@@ -17,12 +17,22 @@ const config = {
 		color: 'blueBright',
 		label: 'Debug'
 	},
-	lightGrey: '#828794'
+	timerStart: {
+		badge: figures('▶'),
+		color: 'cyanBright',
+		label: 'Started Timer'
+	},
+	timerStop: {
+		badge: figures.square,
+		color: 'magentaBright',
+		label: 'Stopped'
+	},
+	lightGrey: chalk.hex('#828794')
 };
 
 function _prefix(prefix) {
 	const type = config[prefix];
-	return ` ${chalk[type.color](` ${type.badge}`)} ${chalk[type.color].underline(type.label)}`;
+	return ` ${chalk[type.color](` ${type.badge}`)}  ${chalk[type.color](type.label)}`;
 }
 
 function arrayify(x) {
@@ -34,11 +44,11 @@ outputUtil.error = (...value) => {
 	if (value[0] instanceof Error && value[0].stack) {
 		let arr = [];
 		const [ name, ...rest ] = value[0].stack.split('\n');
-		arr.push(chalk.hex(config.lightGrey)(name));
-		arr.push(chalk.hex(config.lightGrey)(rest.map((l) => l.replace(/^/, '\n')).join('')));
+		arr.push(config['lightGrey'](name));
+		arr.push(config['lightGrey'](rest.map((l) => l.replace(/^/, '\n')).join('')));
 		errValue = arr.join(' ');
 	} else {
-		errValue = `${chalk.hex(config.lightGrey)(arrayify(value).join(''))}`;
+		errValue = `${config['lightGrey'](arrayify(value).join(''))}`;
 	}
 	console.error(`${_prefix('error')}  ${errValue}`);
 };
@@ -51,14 +61,23 @@ outputUtil.debug = (...value) => {
 		process.env.NODE_DEBUG ||
 		process.env.node_debug
 	) {
-		const debugValue = `${chalk.hex(config.lightGrey)(arrayify(value).join(''))}`;
+		const debugValue = `${chalk.hex[config.lightGrey](arrayify(value).join(''))}`;
 		console.log(`${_prefix('debug')}  ${debugValue}`);
 	}
 };
 
 outputUtil.success = (...value) => {
-	const successValue = `${chalk.hex(config.lightGrey)(arrayify(value).join(''))}`;
+	const successValue = `${config['lightGrey'](arrayify(value).join(''))}`;
 	console.log(`${_prefix('success')}   ${successValue}`);
 };
 
+outputUtil.timer = (type, message, timerId, time) => {
+	let timerValue = '';
+	if (time) {
+		timerValue = `${config['lightGrey'](`Elapsed Time -  ${time} ms`)}`;
+	}
+	console.log(
+		`${_prefix(type)} ${chalk.cyanBright(`[ID ${timerId}]`)}  ${message} ${timerValue}`
+	);
+};
 module.exports = outputUtil;

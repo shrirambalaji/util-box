@@ -30,7 +30,7 @@
     "camelcase-keys": "^4.2.0",
     "chalk": "^2.4.1",
     "figures": "^2.0.0",
-    "fs-extra": "^6.0.1",
-    "signale": "^1.2.1"
+    "node-stopwatch": "0.0.1",
+    "shortid": "^2.2.8"
   }
 }
