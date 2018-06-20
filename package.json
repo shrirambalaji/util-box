@@ -1,36 +1,36 @@
 {
-	"name": "util-box",
-	"version": "1.0.9",
-	"description": "A minimal set of basic helpers and utilties",
-	"main": "index.js",
-	"scripts": {
-		"test": "ava"
-	},
-	"author": "Shriram Balaji",
-	"keywords": [
-		"util",
-		"box",
-		"helper",
-		"utility"
-	],
-	"license": "MIT",
-	"ava": {
-		"files": [
-			"test/**/*.js"
-		]
-	},
-	"devDependencies": {
-		"ava": "1.0.0-beta.4"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Shriram-Balaji/util-box"
-	},
-	"dependencies": {
-		"camelcase-keys": "^4.2.0",
-		"chalk": "^2.4.1",
-		"figures": "^2.0.0",
-		"node-stopwatch": "0.0.1",
-		"shortid": "^2.2.8"
-	}
+  "name": "util-box",
+  "version": "1.0.10",
+  "description": "A minimal set of basic helpers and utilties",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "Shriram Balaji",
+  "keywords": [
+    "util",
+    "box",
+    "helper",
+    "utility"
+  ],
+  "license": "MIT",
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "ava": "1.0.0-beta.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shriram-Balaji/util-box"
+  },
+  "dependencies": {
+    "camelcase-keys": "^4.2.0",
+    "chalk": "^2.4.1",
+    "figures": "^2.0.0",
+    "node-stopwatch": "0.0.1",
+    "shortid": "^2.2.8"
+  }
 }
