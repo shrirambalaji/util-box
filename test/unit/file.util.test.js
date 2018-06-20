@@ -16,6 +16,16 @@ test.serial('fileUtil can writeTo and readFrom a File', async (t) => {
 	}
 });
 
+test.serial('fileUtil can append data to a file', async (t) => {
+	try {
+		const appendFile = await fileUtil.appendFile(fileName, 'Programming 101', 'utf-8');
+		const readAppendedFile = await fileUtil.readFile(fileName);
+		t.regex(readAppendedFile, new RegExp('Programming 101'));
+	} catch (err) {
+		t.falsy(err);
+	}
+});
+
 test.serial('fileUtil can truncate a file', async (t) => {
 	try {
 		const truncateFile = await fileUtil.truncateFile(fileName);

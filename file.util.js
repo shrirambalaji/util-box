@@ -9,6 +9,14 @@ fileUtil.writeFile = (fileName, data) => {
 	});
 };
 
+fileUtil.appendFile = (fileName, data, options) => {
+	return new Promise((resolve, reject) => {
+		fs.appendFile(fileName, data, options, (err) => {
+			err ? reject(err) : resolve(fileName);
+		});
+	});
+};
+
 fileUtil.readFile = (fileName, type) => {
 	if (!type) type = 'utf-8';
 	return new Promise((resolve, reject) => {
@@ -18,17 +26,17 @@ fileUtil.readFile = (fileName, type) => {
 	});
 };
 
-fileUtil.deleteFile = (fileName) => {
+fileUtil.truncateFile = (fileName) => {
 	return new Promise((resolve, reject) => {
-		fs.unlink(fileName, (err) => {
+		fs.truncate(fileName, (err) => {
 			err ? reject(err) : resolve(fileName);
 		});
 	});
 };
 
-fileUtil.truncateFile = (fileName) => {
+fileUtil.deleteFile = (fileName) => {
 	return new Promise((resolve, reject) => {
-		fs.truncate(fileName, (err) => {
+		fs.unlink(fileName, (err) => {
 			err ? reject(err) : resolve(fileName);
 		});
 	});
