@@ -61,7 +61,7 @@ outputUtil.debug = (...value) => {
 		process.env.NODE_DEBUG ||
 		process.env.node_debug
 	) {
-		const debugValue = `${chalk.hex[config.lightGrey](arrayify(value).join(''))}`;
+		const debugValue = `${config['lightGrey'](arrayify(value).join(''))}`;
 		console.log(`${_prefix('debug')}  ${debugValue}`);
 	}
 };
